@@ -26,8 +26,19 @@ export function Navbar() {
     <header className="sticky top-3 z-50 w-full flex justify-around border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container w-full flex h-14 items-center justify-between p-5 ">
         <div className="flex items-center gap-6 md:gap-10">
-          <Link href="/" className="font-bold text-xl">
-            Brand Name<span className="text-primary">.</span>
+          <Link href="/" className="flex items-center gap-2">
+            <span
+              className="text-2xl font-bold"
+              style={{
+                background:
+                  "linear-gradient(to right, #2563eb, #9333ea, #db2777)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              NPS trust
+            </span>
           </Link>
 
           {/* Desktop Menu */}
@@ -36,7 +47,7 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Features</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 bg-emerald-400">
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     <ListItem href="/analytics" title="NPS calculator">
                       Real-time insights into your data.
                     </ListItem>
@@ -61,19 +72,22 @@ export function Navbar() {
         {/* Action Buttons */}
         <div className="flex items-center gap-2">
           <SignedOut>
-            <SignInButton mode="modal">
-              <Button variant="greenBg" size="sm">
-                Sign In
-              </Button>
+            <SignInButton mode="modal" fallbackRedirectUrl="/dashboard">
+              <Button size="sm">Sign In</Button>
             </SignInButton>
-            <SignUpButton mode="modal">
-              <Button variant="ghost" size="sm">
+            <SignUpButton mode="modal" fallbackRedirectUrl="/dashboard">
+              <Button variant="outline" size="sm">
                 Sign Up
               </Button>
             </SignUpButton>
           </SignedOut>
           <SignedIn>
-            <UserButton />
+            <Link href="/dashboard">
+              <Button size="sm" variant="outline">
+                Dashboard
+              </Button>
+            </Link>
+            <UserButton afterSignOutUrl="/" />
           </SignedIn>
         </div>
       </div>

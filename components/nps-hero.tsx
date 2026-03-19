@@ -1,25 +1,24 @@
 import React from "react";
 import Link from "next/link";
-import { Search, Home as HomeIcon, ChevronDown } from "lucide-react";
+import { Search, Home as HomeIcon } from "lucide-react";
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuItem,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
 
 export default function NPSHeroHeader() {
   return (
     <header className="relative w-full overflow-hidden text-white font-sans">
       {/* Background Layer: Deep Blue Gradient with Pattern */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#1e3a8a] via-[#3b82f6] to-[#1e40af]">
+      <div className="absolute inset-0 z-0 bg-linear-to-r from-blue-900 via-blue-600 to-blue-800">
         {/* Decorative Circles and Lines (Simplified) */}
         <div className="absolute top-10 right-20 w-32 h-32 border-2 border-white/10 rounded-full" />
         <div className="absolute -bottom-10 left-1/4 w-48 h-48 border-2 border-white/5 rounded-full" />
         {/* Subtle radial overlay for the "web" effect */}
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
@@ -31,7 +30,7 @@ export default function NPSHeroHeader() {
               <span className="text-orange-400">N</span>
               <span className="text-pink-500">P</span>
               <span className="text-blue-400">S</span>
-              <span className="block text-xs font-light tracking-[0.3em] mt-[-8px]">
+              <span className="block text-xs font-light tracking-[0.3em] -mt-2">
                 TRUST
               </span>
             </div>
@@ -42,7 +41,7 @@ export default function NPSHeroHeader() {
             <nav className="flex items-center gap-6 text-sm font-medium">
               <Link
                 href="/"
-                className="flex items-center gap-1 hover:text-orange-300"
+                className="flex items-center gap-1 hover:text-orange-300 transition-colors"
               >
                 <HomeIcon className="w-4 h-4" /> Home
               </Link>
@@ -64,7 +63,10 @@ export default function NPSHeroHeader() {
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <Link href="/apy" className="hover:text-orange-300">
+                    <Link
+                      href="/apy"
+                      className="hover:text-orange-300 transition-colors"
+                    >
                       APY
                     </Link>
                   </NavigationMenuItem>
@@ -77,7 +79,7 @@ export default function NPSHeroHeader() {
                 </NavigationMenuList>
               </NavigationMenu>
 
-              <button className="p-1 hover:text-orange-300">
+              <button className="p-1 hover:text-orange-300 transition-colors">
                 <Search className="w-5 h-5" />
               </button>
             </nav>
@@ -101,19 +103,17 @@ export default function NPSHeroHeader() {
                 NPS
               </Link>
               <span>&gt;</span>
-              <span className="font-semibold">Pension Calculator NPS</span>
+              <span>Calculator</span>
             </nav>
           </div>
 
-          {/* Secondary Logo (Right Side) */}
-          <div className="bg-white p-2 rounded-sm shadow-lg mb-4">
-            <div className="bg-red-600 text-white px-3 py-2 text-center text-[10px] leading-tight font-bold">
-              nps <br /> national <br /> pension <br /> system
-              <div className="mt-1 border-t border-white/50 pt-1 italic font-normal text-[8px]">
-                #Zaruri Hai
-              </div>
-            </div>
-          </div>
+          {/* Call-to-action Button */}
+          <Button
+            size="lg"
+            className="bg-orange-600 hover:bg-orange-700 text-white mb-4"
+          >
+            Start Calculating
+          </Button>
         </div>
       </div>
     </header>

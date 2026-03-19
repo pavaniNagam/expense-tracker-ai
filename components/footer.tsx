@@ -16,7 +16,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-[#2b4299] text-white pt-12">
+    <footer className="w-full bg-foreground text-background pt-12">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
         {/* Link Columns */}
         {footerLinks.map((col, i) => (
@@ -24,7 +24,7 @@ export function Footer() {
             {col.map((link) => (
               <li
                 key={link}
-                className="flex items-center gap-2 text-sm hover:translate-x-1 transition-transform cursor-pointer"
+                className="flex items-center gap-2 text-sm hover:translate-x-1 transition-transform cursor-pointer opacity-80 hover:opacity-100"
               >
                 <ChevronRight className="w-3 h-3" /> {link}
               </li>
@@ -36,13 +36,13 @@ export function Footer() {
         <div className="flex flex-col items-center md:items-end gap-6">
           <div className="flex gap-4">
             <div className="text-center">
-              <div className="bg-white p-2 rounded-lg mb-2 text-black text-xs">
+              <div className="bg-background p-2 rounded-lg mb-2 text-foreground text-xs">
                 [QR Code]
               </div>
               <span className="text-xs uppercase">iOS</span>
             </div>
             <div className="text-center">
-              <div className="bg-white p-2 rounded-lg mb-2 text-black text-xs">
+              <div className="bg-background p-2 rounded-lg mb-2 text-foreground text-xs">
                 [QR Code]
               </div>
               <span className="text-xs uppercase">Android</span>
@@ -55,7 +55,7 @@ export function Footer() {
               {[Twitter, Facebook, Instagram, Linkedin].map((Icon, i) => (
                 <div
                   key={i}
-                  className="bg-white p-2 rounded-full text-[#2b4299] hover:bg-orange-400 hover:text-white cursor-pointer transition-colors"
+                  className="bg-background p-2 rounded-full text-foreground hover:bg-orange-400 hover:text-white cursor-pointer transition-colors"
                 >
                   <Icon className="w-5 h-5" />
                 </div>
@@ -66,15 +66,15 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-[#1e3280] py-6 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:row items-center justify-between text-xs gap-4">
-          <p>
+      <div className="bg-black py-6 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-xs gap-4">
+          <p className="opacity-75">
             Copyright © 2024 National Pension System Trust (NPS Trust). All
             rights reserved
           </p>
           <div className="flex items-center gap-8">
-            <p>Last Updated: 20 January 2026</p>
-            <p>
+            <p className="opacity-75">Last Updated: 20 January 2026</p>
+            <p className="opacity-75">
               Visitors: <span className="text-lg font-mono">0050593564</span>
             </p>
           </div>
